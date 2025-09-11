@@ -1,0 +1,60 @@
+.card-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px, 1fr));
+  gap: 10px;
+  justify-content: center;
+  
+}
+
+.profile-card {
+  
+  background: rgb(1, 1, 91);
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  text-align: center;
+  margin: 15px;
+  transition: transform 0.3s ease-in-out;
+  color: white;
+}
+
+
+.profile-card:hover {
+  transform: translateY(-5px);
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #f6ca02;
+  margin-bottom: 15px;
+}
+
+.profile-name {
+  font-size: 1.5rem;
+  color: #FFF;
+  margin: 5px 0;
+}
+
+.profile-job {
+  font-size: 1rem;
+  color: #FFF;
+  margin-bottom: 15px;
+}
+
+.profile-bio {
+  font-style: italic;
+  color: #FFF;
+  margin-top: 10px;
+}
+
+a {
+  color: #FFF;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
