@@ -1,0 +1,24 @@
+.addreivew Form{
+    background-color:#042137;
+    padding: 30px;
+    border-radius: 20px;
+    color: white;
+}
+.addreivew button {
+  background-color: #e2b604;  
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.addreivew button:hover {
+  background-color: #edc10e; 
+  transform: translateY(-2px);
+}
+
+Form span{
+  color: red;
+}

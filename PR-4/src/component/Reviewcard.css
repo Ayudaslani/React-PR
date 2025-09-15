@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin-top: 30px;
+}
+
+.card-wrapper {
+    position: relative;
+    margin-bottom: 30px;
+    padding: 5px;
+}
+
+.card-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 35px;
+    left: 50px;
+    width: 90%;
+    height: 90%;
+    background: #103959;
+    border-radius: 40px;
+    transform: rotate(-1deg);
+    z-index: 0;
+}
+
+.card {
+    position: relative;
+    background: #fff;
+    border-radius: 45px 40px 40px 45px;
+    padding: 20px 25px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    z-index: 1;
+    transform: rotate(-1deg);
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.profile-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 30px;
+    margin-right: 15px;
+}
+
+.profile-img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.profile-info h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.profile-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #777;
+}
+
+.stars {
+    margin: 10px 0;
+    color: #f7b731;
+    font-size: 18px;
+}
+
+.review {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
