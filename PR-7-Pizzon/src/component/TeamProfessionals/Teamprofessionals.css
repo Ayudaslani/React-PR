@@ -1,0 +1,72 @@
+.Team-professional-section {
+    padding: 0px 0px 50px 0px;
+position: relative;    
+}
+
+.book-leaf-image{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    right: 0%;
+    top: 0%;
+}
+
+.team-professional-image {
+    overflow: hidden;
+    border-radius: 40px;
+    position: relative;
+}
+
+.team-professional-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+
+}
+
+.Team-professional:hover .team-professional-image img {
+    transform: scale(1.1);
+}
+
+.team-professional-content {
+    padding: 15px 0px;
+}
+
+.team-professional-content h3 {
+    font-size: 1.6rem;
+}
+
+.team-professional-content p {
+    font-size: 1.2rem;
+    color: gray;
+}
+
+.title h5{
+    color: red;
+    font-size: 2rem;
+    font-weight: 500;
+}
+.title{
+    
+    text-align: left;
+    padding: 10px;
+
+}
+.sub-title{
+     position: relative;
+    display: inline-block; 
+    
+}
+.sub-title::before{
+    position: absolute;
+    content:'';
+    box-sizing: border-box;
+    top: 50%;
+    left: 120%;
+    background: red;
+    width: 100px;
+    height: 2px;
+    transform: translateY(-50%);
+}
