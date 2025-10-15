@@ -13,7 +13,7 @@ const Add = () => {
     const navigate = useNavigate();
     const [Error, setError] = useState({});
     const initialstate = {
-        id: "",
+        id:"",                          
         name: "",
         desc: "",
         price: "",

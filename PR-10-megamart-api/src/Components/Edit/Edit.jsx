@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import { Button } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { GetOneMenDataAsync, UpdateMenData, UpdateMenDataAsync } from '../Services/Action/Action';
+import { GetOneMenDataAsync, UpdateMenDataAsync } from '../Services/Action/Action';
 import { useNavigate, useParams } from 'react-router';
 
 const Edit = () => {
@@ -13,7 +13,7 @@ const Edit = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const initialstate = {
-        id: "",
+        id:"",
         name: "",
         desc: "",
         price: "",
