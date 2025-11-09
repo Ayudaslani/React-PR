@@ -1,18 +1,25 @@
+
 const initialstate = {
     men: [],
     allMen: [],
-    loading: false,
     MenData: null,
     isError: "",
-    isCreate: false
+    isCreate: false,
+    isloading:false
 }
 export const ReducerData = (state = initialstate, action) => {
     switch (action.type) {
+        case "LOADING" :
+            return{
+                ...state,
+                isloading:true
+            }
         case "Rej_ALL":
             return {
                 ...state,
                 isError: action.message,
                 isCreate: false,
+                isloading:false
             }
 
         case "GET_ALL_MEN_DATA":
@@ -21,6 +28,7 @@ export const ReducerData = (state = initialstate, action) => {
                 men: action.payload,
                 allMen: action.payload,
                 isCreate: false,
+                isloading:false
             }
         case "ADD_MEN_DATA":
             return {

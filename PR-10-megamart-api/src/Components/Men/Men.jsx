@@ -12,6 +12,7 @@ const Men = () => {
 
     const [showCategory, setShowCategory] = useState(true);
     const [showBrand, setShowBrand] = useState(false);
+    const { isError, isCreate } = useSelector(state => state);
     const [pattern, setPattern] = useState(false);
     const [Filter, setFilter] = useState({
         categories: [],
@@ -221,10 +222,11 @@ const Men = () => {
                                 </div>
                             </div>
                         </div>
+                        {isError ? <h1> {isError} </h1> : ""}
                         <div className="col-8 p-0">
                             <div className='men-card'>
                                 <div className='row'>
-                                    {
+                                    {men && men.length > 0 ?
                                         men?.map((v) => {
                                             return (
                                                 <>
@@ -254,8 +256,10 @@ const Men = () => {
                                                     </div>
                                                 </>
                                             )
-                                        })
+                                        }) :
+                                        <p>Not Data Found </p>
                                     }
+
 
                                 </div>
                             </div>

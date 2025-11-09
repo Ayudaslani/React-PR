@@ -2,8 +2,8 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { Button } from 'react-bootstrap';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { AddMenDataAsync } from '../Services/Action/Action';
 import { useNavigate } from 'react-router';
 import './Add.css'
@@ -12,8 +12,9 @@ const Add = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [Error, setError] = useState({});
+    const { isError, isCreate } = useSelector(state => state);
     const initialstate = {
-        id:"",                          
+        id: "",
         name: "",
         desc: "",
         price: "",
@@ -40,6 +41,11 @@ const Add = () => {
             })
         }
     }
+    useEffect(() => {
+        if (isCreate) {
+            navigate('/Men')
+        }
+    }, [isCreate])
     const formValidation = () => {
         const formError = {};
 
@@ -73,17 +79,14 @@ const Add = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!formValidation()) {
-            InputForm.id = Math.floor(Math.random() * 1000);
+            InputForm.id = String(Math.floor(Math.random() * 1000));
             dispatch(AddMenDataAsync(InputForm));
             navigate('/men')
         }
-
     }
-
-
-
     return (
         <>
+            {isError ? <p>{isError}</p> : ""}
             <h1 align="center">Add Data In From</h1>
             <section>
                 <div className='container'>
@@ -177,7 +180,7 @@ const Add = () => {
                             </Form.Label>
                             <Col sm="6">
                                 <Form.Control type="text" placeholder="Product Image URL" name='image' onChange={handlechange} value={InputForm.image} />
-                            {Error.image ? <span className='error'>{Error.image}</span> : ""}
+                                {Error.image ? <span className='error'>{Error.image}</span> : ""}
                             </Col>
                         </Form.Group>
                         <Button type='submit'>submit</Button>
