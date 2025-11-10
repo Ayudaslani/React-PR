@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { Collapse } from "react-bootstrap";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { useState } from 'react';
+import SliderSection from '../Silder-section/SilderSection';
 const Explormore = () => {
     const [open, setOpen] = useState(false);
     const settings = {
@@ -74,19 +75,22 @@ const Explormore = () => {
                     <div className="slider-container">
                         <Slider {...settings}>
                             <div className="slide">
-                                <img src="./src/image/banner-1.png" alt="slide1" />
+                                <img src="./src/image/banner-4.png" alt="slide1" />
                             </div>
                             <div className="slide">
-                                <img src="./src/image/banner-2.png" alt="slide2" />
+                                <img src="./src/image/banner-5.png" alt="slide2" />
                             </div>
                             <div className="slide">
-                                <img src="./src/image/banner-3.png" alt="slide3" />
+                                <img src="./src/image/banner-6.png" alt="slide3" />
                             </div>
                         </Slider>
                     </div>
                 </div>
             </section>
 
+            <section className='pt-5'>
+                <SliderSection></SliderSection>
+            </section>
 
             <section className="mb-4 pt-5">
                 <div
@@ -155,8 +159,8 @@ const Explormore = () => {
                             <h3>CONNECT WITH US</h3>
                             <p className='text-center'>Be the First to Know about new products, exclusive collections, <br></br>latest trends adn more</p>
                             <div className='d-flex gap-3 justify-content-center'>
-                                <input placeholder='Enter your Email address' style={{border:"1px solid white",background:"	#272626ff",borderRadius:"8px",padding:"8px 40px"}}></input>
-                                <button style={{background:"#e0dedeff",border:"0px",borderRadius:"18px",padding:"10px 30px"}}> SUBSCRIBE</button>
+                                <input placeholder='Enter your Email address' style={{ border: "1px solid white", background: "	#272626ff", borderRadius: "8px", padding: "8px 40px" }}></input>
+                                <button style={{ background: "#e0dedeff", border: "0px", borderRadius: "18px", padding: "10px 30px" }}> SUBSCRIBE</button>
                             </div>
                             <div className='mt-2'>
                                 <input type='checkbox'></input> I agree to receive marketing emails/SMS/texts<br></br> and have read and accepted the Terms & condition and Privacy Policy.
@@ -168,27 +172,27 @@ const Explormore = () => {
 
             <section className='products-section py-3'>
                 <div className='container'>
-                    <div className='row d-flex justify-content-center'>
-                        <div className='col-2'>
+                    <div className='row d-flex justify-content-center text-center'>
+                        <div className='col-6 col-lg-2'>
                             <img src='https://cdn-icons-png.flaticon.com/512/1311/1311095.png' className='product-image'></img>
                             <p>1L + products</p>
                         </div>
-                        <div className='col-2'>
+                        <div className='col-6 col-lg-2'>
                             <img src='./src/image/product-img2.png' className='product-image'></img>
                             <p>Easy 15 Days</p>
                         </div>
-                        <div className='col-2'>
+                        <div className='col-6 col-lg-2'>
                             <img src='./src/image/product-img3.png' className='product-image'></img>
                             <p>Authentic Brands</p>
                         </div>
-                        <div className='col-2'>
+                        <div className='col-6 col-lg-2'>
                             <img src='./src/image/product-img4.png' className='product-image'></img>
                             <p>Free Shipping</p>
                         </div>
                     </div>
                 </div>
             </section>
-            
+
 
 
         </>

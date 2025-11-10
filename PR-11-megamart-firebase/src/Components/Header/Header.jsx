@@ -7,6 +7,7 @@ import './Header.css'
 import { Link } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { signOutuserAsync } from '../Services/Action/Authentication';
+import { FaCirclePlus } from "react-icons/fa6";
 const Header = () => {
 
     const { user } = useSelector(state => state.AuthReducer);
@@ -24,7 +25,7 @@ const Header = () => {
                         <img src='./src/image/mega-logo.png' className='mega-logo'></img>
                     </Navbar.Brand>
                     <Navbar.Toggle />
-                    <Navbar.Collapse className="justify-content-end">
+                    {/* <Navbar.Collapse className="justify-content-end">
                         
                         <div className='d-flex gap-2'>
                             <div className='text-center'>
@@ -38,14 +39,54 @@ const Header = () => {
                             </div>
                         </div>
                         {
-                            user ? <Link to={'/add'} className='btn mx-3  Add-collection'>ADD Collection</Link>:""
+                            user ? <Link to={'/add'} className='btn mx-3  Add-collection'><FaCirclePlus /></Link>:""
                         }
 
                         {
                             !user ? <Link to={'/SignIn'} className='btn signin-btn'>SIGNIN</Link> :
                                 <div className='d-flex'><Link className='email-id'>{user.email}</Link><button className='btn mx-3 logout' onClick={handleLogout} >LOGOUT</button></div>
                         }
+                    </Navbar.Collapse> */}
+                    <Navbar.Collapse className="justify-content-end">
+                        <div className="d-flex align-items-center gap-2">
+
+                            {/* USER ICON WITH DROPDOWN */}
+                            <div className="user-dropdown">
+                                <div className="user-icon text-center ">
+                                    <FiUser className="nav-icon ms-0" />
+                                </div>
+
+                                {user && (
+                                    <div className="user-dropdown-content">
+                                        <p className="user-email">{user.email}</p>
+                                        <button className="btn logout-btn" onClick={handleLogout}>
+                                            Logout
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Other icons */}
+                            <div className="text-center">
+                                <CiHeart className="nav-icon ms-0" />
+                            </div>
+                            <div className="text-center">
+                                <LuBaggageClaim className="nav-icon ms-0" />
+                            </div>
+
+                            {/* Add button */}
+                            {user ? (
+                                <Link to={"/add"} className="btn Add-collection mx-2">
+                                    <FaCirclePlus />
+                                </Link>
+                            ) : (
+                                <Link to={"/SignIn"} className="btn signin-btn">
+                                    SIGNIN
+                                </Link>
+                            )}
+                        </div>
                     </Navbar.Collapse>
+
                 </Container>
             </Navbar>
 
@@ -146,9 +187,9 @@ const Header = () => {
                                                         <li><Link>Tops & Shirts</Link></li>
                                                         <li><Link>Polo Shirts</Link></li>
                                                         <li><Link>Shirts</Link></li>
-                                                             <li><Link>Sweatshirts & Hoodies</Link></li>
+                                                        <li><Link>Sweatshirts & Hoodies</Link></li>
                                                         <li><Link>Jeans</Link></li>
-                                                   
+
                                                         <li><Link>Pants</Link></li>
                                                         <li><Link>Shorts</Link></li>
                                                     </ul>
@@ -161,8 +202,8 @@ const Header = () => {
                                                         <li><Link>Jackets</Link></li>
                                                         <li><Link>Sweaters</Link></li>
                                                         <li><Link>Polo Shirts </Link></li>
-                                                         <li><Link>Sweatshirts & Hoodies</Link></li>
-                                                        
+                                                        <li><Link>Sweatshirts & Hoodies</Link></li>
+
                                                         <li><Link>Shorts</Link></li>
                                                     </ul>
                                                 </div>
@@ -175,7 +216,7 @@ const Header = () => {
                                     </div>
                                 </li>
                             </li>
-                           
+
                         </ul>
 
                     </div>
