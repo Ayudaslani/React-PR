@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router";
-import { SignInAsync } from "../Services/Action/Authentication";
+import { SignInAsync, SingInGoogleAsync } from "../Services/Action/Authentication";
 import './SignIn.css'
 
 const SignIn = () => {
@@ -29,6 +29,9 @@ const SignIn = () => {
         dispatch(SignInAsync(InputForm))
 
     }
+    const handleGooglesignin = () => {
+        dispatch(SingInGoogleAsync());
+    }
     useEffect(() => {
         if (user) {
             navigate("/");
@@ -40,7 +43,7 @@ const SignIn = () => {
             <section className="py-5 signin-section">
                 <div className="container">
                     <div className="auth-card row mx-auto align-items-center">
-                        
+
                         <div className="col-12 col-md-6 d-none d-md-flex justify-content-center">
                             <div className="hero-wrap">
                                 <img
@@ -104,7 +107,7 @@ const SignIn = () => {
                                         <div className="socials mt-3 d-flex gap-2 justify-content-center">
                                             <button type="button" className="social-btn fb">f</button>
                                             <button type="button" className="social-btn tw">t</button>
-                                            <button type="button" className="social-btn gg">G</button>
+                                            <button type="submit" className="social-btn gg" onClick={handleGooglesignin}>G</button>
                                         </div>
                                     </Form.Group>
                                 </Form>

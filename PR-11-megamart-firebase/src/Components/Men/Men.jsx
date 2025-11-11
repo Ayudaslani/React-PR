@@ -148,7 +148,7 @@ const Men = () => {
 
                                     {showCategory && (
                                         <div className="mt-2 ps-2">
-                                            {["Blazers", "Cargos", "Chinos", "Jackets", "Jeans", "Joggers"].map((name) => (
+                                            {["Blazers", "cargos", "jackets", "jeans", "joggers","Dresses","Shorts","sarees","T-shirt","shirts","Teaditional"].map((name) => (
                                                 <div key={name} className="d-flex justify-content-between">
                                                     <label>
                                                         <input
@@ -184,7 +184,7 @@ const Men = () => {
 
                                     {showBrand && (
                                         <div className="mt-2 ps-2">
-                                            {["AD by Arvind", "Arrow", "Arrow Newyork", "Arrow Sport", "Calvin Klein", "Calvin Klein Jeans"].map((name) => (
+                                            {["Nike","AD By Arvind", "Arrow", "Arrow Newyork", "Arrow Sport","Raymond","Levi’s" ,"Puma" , "Pepe Jeans","Forever 21","Fabindia","Louis Philippe","Manyavar"].map((name) => (
                                                 <div key={name} className="d-flex justify-content-between">
                                                     <label>
                                                         <input

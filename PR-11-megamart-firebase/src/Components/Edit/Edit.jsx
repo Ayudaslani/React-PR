@@ -168,6 +168,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { GetOneMenDataAsync, UpdateMenDataAsync } from '../Services/Action/Action';
 import { useNavigate, useParams } from 'react-router';
+import uploadImage from '../Services/UploadImage';
 
 const Edit = () => {
   const dispatch = useDispatch();
@@ -216,7 +217,7 @@ const Edit = () => {
   // when MenData loads into the store, populate form
   useEffect(() => {
     if (MenData) {
-      // Ensure pattern is an array
+
       setInputForm({
         ...initialstate,
         ...MenData,
@@ -224,7 +225,7 @@ const Edit = () => {
         genderType: MenData.genderType || initialstate.genderType
       });
     }
-  }, [MenData]); // eslint-disable-line
+  }, [MenData]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -254,6 +255,16 @@ const Edit = () => {
       // optionally show an error message to user
     }
   };
+
+  const handleImage = async (e) => {
+    let imageUrl = await uploadImage(e.target.files[0]);
+    setInputForm({
+      ...InputForm,
+      image: `${imageUrl}`
+    })
+  }
+
+
 
   return (
     <>
@@ -482,11 +493,11 @@ const Edit = () => {
                 <Form.Label column sm="2">Product Image</Form.Label>
                 <Col sm="6">
                   <Form.Control
-                    type="text"
-                    placeholder="Product Image URL"
+                    type="file"
+
                     name="image"
-                    onChange={handlechange}
-                    value={InputForm.image}
+                    onChange={handleImage}
+
                   />
                 </Col>
               </Form.Group>

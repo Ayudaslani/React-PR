@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth } from '../../../config/firebase.config';
 const errMsg = (msg) => {
     return {
@@ -18,9 +18,9 @@ const signInuser = (user) => {
         payload: user
     }
 }
-const signOutAsync = () =>{
-    return{
-        type:"SIGNOUT_USER"
+const signOutAsync = () => {
+    return {
+        type: "SIGNOUT_USER"
     }
 }
 
@@ -59,5 +59,21 @@ export const signOutuserAsync = () => {
             console.log(error);
             dispatch(errMsg(error.message));
         }
+    }
+}
+
+export const SingInGoogleAsync = () => {
+    return async (dispatch) => {
+        try {
+
+            const provider = new GoogleAuthProvider();
+             let res  = await signInWithPopup(auth, provider);
+            dispatch(signInuser(res.user))
+        }
+        catch (error) {
+            console.log(error);
+            dispatch(errMsg(error.message));
+        }
+
     }
 }

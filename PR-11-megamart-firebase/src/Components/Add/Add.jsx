@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AddMenDataAsync } from '../Services/Action/Action';
 import { useNavigate } from 'react-router';
 import './Add.css'
+import uploadImage from '../Services/UploadImage';
 
 const Add = () => {
     const dispatch = useDispatch();
@@ -73,7 +74,7 @@ const Add = () => {
         if (InputForm.pattern == "") {
             formError.pattern = "pattern Must be Requried !";
         }
-        if (InputForm.image == "") {
+        if (!InputForm.image) {
             formError.image = "image Must be Requried !";
         }
         if (InputForm.genderType === "") formError.genderType = "Select Men/Women/Kids";
@@ -95,6 +96,14 @@ const Add = () => {
                 navigate('/kids');
             }
         }
+    }
+    const handleImage = async(e) => {
+          let imageUrl = await uploadImage(e.target.files[0]);
+        setInputForm({
+            ...InputForm,
+            image: `${imageUrl}`
+        });
+
     }
     return (
         <>
@@ -278,7 +287,7 @@ const Add = () => {
                                 <Col sm="8">
                                     <Form.Select name='categoryType' onChange={handlechange}>
                                         <option>Category Type</option>
-                                        {["Blazers", "cargos", "jackets", "jeans", "joggers"].map((v) => (
+                                        {["Blazers", "cargos", "jackets", "jeans", "joggers","Dresses","Shorts","sarees","T-shirt","shirts","Teaditional"].map((v) => (
                                             <option key={v} value={v}>{v}</option>
                                         ))}
                                     </Form.Select>
@@ -293,7 +302,7 @@ const Add = () => {
                                 <Col sm="8">
                                     <Form.Select name='brand' onChange={handlechange}>
                                         <option>Product Brand</option>
-                                        {["AD By Arvind", "Arrow", "Arrow Newyork", "Arrow Sport"].map((v) => (
+                                        {["Nike","AD By Arvind", "Arrow", "Arrow Newyork", "Arrow Sport","Raymond","Levi’s" ,"Puma" , "Pepe Jeans","Forever 21","Fabindia","Louis Philippe","Manyavar"].map((v) => (
                                             <option key={v} value={v}>{v}</option>
                                         ))}
                                     </Form.Select>
@@ -325,7 +334,7 @@ const Add = () => {
                                     Product Image
                                 </Form.Label>
                                 <Col sm="8">
-                                    <Form.Control type="text" placeholder="Product Image URL" name='image' onChange={handlechange} value={InputForm.image} />
+                                    <Form.Control type="file" name='image' onChange={handleImage} />
                                     {Error.image ? <span className='error'>{Error.image}</span> : ""}
                                 </Col>
                             </Form.Group>
