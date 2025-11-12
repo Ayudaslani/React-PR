@@ -12,7 +12,8 @@ const SignUp = () => {
         email: "",
         password: ""
     })
-
+    console.log("outside",iscreated);
+    
     const handlechange = (e) => {
         const { name, value } = e.target;
         setInputForm({
@@ -26,10 +27,12 @@ const SignUp = () => {
 
     }
     useEffect(() => {
+        console.log(iscreated);
+        
         if (iscreated) {
             navigate('/signIn')
         }
-    }, iscreated)
+    }, [iscreated])
     return (
         <>
             {errMsg ? <p>{errMsg}</p> : ""}
