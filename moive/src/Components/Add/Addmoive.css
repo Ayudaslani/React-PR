@@ -1,19 +1,19 @@
-/* FORM WRAPPER BACKGROUND */
+
 .add-moive-form {
-    background-color: #ffffff;      /* <- form के पीछे सफेद background */
+    background-color: #ffffff;      
     padding: 25px;
     border-radius: 8px;
-    box-shadow: 0 0 8px #d3d3d3;    /* हल्का shadow (optional) */
+    box-shadow: 0 0 8px #d3d3d3;    
 }
 
-/* LABEL BLACK COLOR */
+
 .add-moive-form label,
 .add-moive-form .form-label,
 .add-moive-form .fs-6 {
-    color: #000 !important;         /* <-- pure black label */
+    color: #000 !important;        
 }
 
-/* Optional: input spacing clean लगे */
+
 .add-moive-form .form-control,
 .add-moive-form .form-select {
     background-color: #f8f8f8;      

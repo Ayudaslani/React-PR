@@ -8,7 +8,7 @@
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
-/* Brand */
+
 .app-navbar .brand {
   color: #fff;
   font-weight: 700;
@@ -17,26 +17,29 @@
   display: inline-flex;
   align-items: center;
 }
+.app-navbar .brand:hover {
+  color: #fff !important;
+}
 .app-navbar .brand .brand-accent {
-  color: #ffd166; /* accent color */
+  color: #ffd166; 
   margin-left: 6px;
   font-weight: 800;
 }
 
-/* toggler color */
+
 .app-navbar .navbar-toggler {
   border: none;
   color: rgba(255,255,255,0.9);
 }
 
-/* right-side container */
+
 .nav-actions {
   display: flex;
   align-items: center;
   gap: 0.75rem;
 }
 
-/* user block (when logged in) */
+
 .user-block {
   display: flex;
   align-items: center;
@@ -76,11 +79,7 @@
 }
 
 
-.btn-ghost {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.9);
-}
+
 
 .btn-outline {
   background: transparent;
@@ -106,4 +105,33 @@
 .btn:focus-visible {
   box-shadow: 0 0 0 3px rgba(99,102,241,0.18);
   border-radius: 10px;
+}
+
+/* Search box container */
+.search-box {
+  position: relative;
+}
+
+.search-box input {
+  width: 260px;
+  padding: 8px 14px;
+  border-radius: 25px;
+  border: 2px solid #007bff;
+  outline: none;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+/* Focus effect */
+.search-box input:focus {
+  width: 320px;
+  border-color: #0056b3;
+  box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.4);
+}
+
+/* Mobile responsive */
+@media (max-width: 576px) {
+  .search-box input {
+    width: 100%;
+  }
 }
